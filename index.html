@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+https://ishadeed.com/article/stepper-component-html-css/#header
+-->
+<html lang='pt-br'>
+    <head>
+        <link type="text/css" rel="stylesheet" href="css/tStepper.css">
+        <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <div id="content" class="row">
+
+  <ol class="c-timeline">
+    <li class="c-timeline__item">
+      <div class="c-timeline__content c-timeline__content_previous">
+        <h3 class="c-timeline__title">Design</h3>
+        <p class="c-timeline__desc">In Progress</p>
+      </div>
+      <time>10:03</time>
+    </li>
+    <li class="c-timeline__item">
+      <div class="c-timeline__content c-timeline__content_active">
+        <i class="fa fa-flag c-timeline__icon" aria-hidden="true"></i>
+        <h3 class="c-timeline__title">Development</h3>
+        <p class="c-timeline__desc">Todo</p>
+      </div>
+      <time>10:03</time>
+    </li>
+    <li class="c-timeline__item">
+      <div class="c-timeline__content">
+        <h3 class="c-timeline__title">QA Testing</h3>
+        <p class="c-timeline__desc">Todo</p>
+      </div>
+      <time>01/10/2023 10:03</time>
+    </li>
+  </ol>
+
+
+        </div>
+    </body>
+        <script type="text/javascript" src="js/tStepper.js"></script>
+        <script type="text/javascript">
+            var r = new tStepper({
+                "type" : "vertical",
+                "steps" : [
+                    {"title": "Queue 1", "description" : "blalsdaskm kasdaks kasdkamdd", "time" : ""},
+                    {"title": "Queue 2", "description" : "blalsdaskm kasdaks kasdkamdd", "time" : ""},
+                    {"title": "Queue 3", "description" : "blalsdaskm kasdaks kasdkamdd", "time" : "", "active" : true},
+                    {"title": "Queue 4", "description" : "blalsdaskm kasdaks kasdkamdd", "time" : ""}
+                ]
+            })
+            r.updateStep("Queue 1", {"title": "Queue 01", "description" : "Fila com zero a esquerda", "time" : "seg 8 de jan 10:22"});
+            document.body.appendChild(r.content);
+        </script>
+</html>
+
