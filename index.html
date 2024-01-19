@@ -43,14 +43,25 @@ https://ishadeed.com/article/stepper-component-html-css/#header
         <script type="text/javascript">
             var r = new tStepper({
                 "type" : "vertical",
-                "steps" : [
+                "steps" : 
+                [
                     {"title": "Queue 1", "description" : "blalsdaskm kasdaks kasdkamdd", "time" : ""},
                     {"title": "Queue 2", "description" : "blalsdaskm kasdaks kasdkamdd", "time" : ""},
                     {"title": "Queue 3", "description" : "blalsdaskm kasdaks kasdkamdd", "time" : "", "active" : true},
                     {"title": "Queue 4", "description" : "blalsdaskm kasdaks kasdkamdd", "time" : ""}
                 ]
             })
-            r.updateStep("Queue 1", {"title": "Queue 01", "description" : "Fila com zero a esquerda", "time" : "seg 8 de jan 10:22"});
+//            r.updateStep("Queue 1", {"title": "Queue 01", "description" : "Fila com zero a esquerda", "time" : "seg 8 de jan 10:22"});
+            r.updateAll(
+                [
+                    {"title": "Queue 1", "description" : "blalsdaskm kasdaks kasdkamdd", "time" : ""},
+                    {"title": "Queue 2", "description" : "blalsdaskm kasdaks kasdkamdd", "time" : ""},
+                    {"title": "Queue 3", "description" : "blalsdaskm kasdaks kasdkamdd", "time" : "", "active" : true},
+                    {"title": "Queue 4", "description" : "blalsdaskm kasdaks kasdkamdd", "time" : ""},
+                    {"title": "Queue 5", "description" : "blalsdaskm kasdaks kasdkamdd", "time" : ""},
+                    {"title": "Queue 6", "description" : "blalsdaskm kasdaks kasdkamdd", "time" : ""}
+                ]
+            );
             document.body.appendChild(r.content);
         </script>
 </html>

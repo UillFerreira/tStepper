@@ -20,7 +20,8 @@ function tStepper (properties) {
     if (properties.steps != undefined) { 
         this.steps          = properties.steps;
         this.stepsLength    = (this.steps).length;
-        this.content        = this.createStepper(this.steps);
+        this.content        = document.createElement("div");
+        this.content.appendChild(this.createStepper(this.steps));
         if(this.activePos != undefined && this.steps[this.activePos].active != undefined) this.setActive(this.steps[this.activePos].title);
     }
     if(properties.type != undefined) this.type = properties.type;
@@ -56,7 +57,7 @@ tStepper.prototype.createList = function (step) {
     p.innerText = step.description;
     // time
     let time = document.createElement("time");
-    time.innetText = step.time;
+    time.innerText = step.time;
 
     li.appendChild(div);
     div.appendChild(h3);
@@ -67,7 +68,7 @@ tStepper.prototype.createList = function (step) {
 }
 
 tStepper.prototype.returnElm = function (pos) {
-    return this.content.children[pos];
+    return this.content.children[0].children[pos];
 }
 tStepper.prototype.updateName = function (pos, value) {
     let elm     = this.returnElm(pos);
@@ -93,6 +94,17 @@ tStepper.prototype.updateTime = function (pos, value) {
     time.innerText  = value;
     // Update json
     this.steps[pos]["time"]  = value;
+}
+tStepper.prototype.destroyList = function () {
+    while(this.content.firstChild) {
+        this.content.removeChild(this.content.lastChild);
+    }
+}
+tStepper.prototype.updateAll = function (steps) {
+    this.steps = steps;
+    this.destroyList();
+    this.content.appendChild(this.createStepper(steps));
+    if(this.activePos != undefined && this.steps[this.activePos].active != undefined) this.setActive(this.steps[this.activePos].title);
 }
 tStepper.prototype.updateStep = function (title, step) {
     for ( let i = 0; i < this.steps.length; i++) {
